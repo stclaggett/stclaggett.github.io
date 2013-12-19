@@ -1,25 +1,136 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Sarah Learns Coding!</title>
-		<body bgcolor="black">
+		<title>Sarah Claggett</title>
+		<body bgcolor="white">
 		<link href='http://fonts.googleapis.com/css?family=Julius+Sans+One' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Lekton' rel='stylesheet' type='text/css'>
 		<style type="text/css">
+		*{font-family: Lekton, sans-serif;}
 		.welcome {color:aqua}
-					h1 {background-color:black }
+					h1 {background-color:white }
 			
-			a {display:block;background-color: #000000}
+			a {background-color: #ffffff; text-decoration: none;}
+			a:hover{color: red; text-decoration: none;}
+
 			
 			#welcome {
-			font-family:'Julius Sans One', sans-serif;
-				color:#ff0078;
-				font-size: 100px;
+			font-family: Lekton, sans-serif;
+				color: black;
+				font-size: 69px;
+			}
+		</style>
+		<style type="text/css">
+			body {
+				font-family: Lekton, sans-serif;
+				font-size: 14px;
+			}
+						
+			.vertical_menu {
+				float: left;
+				width: 125px;
+				padding: 5px;
+				margin: 5px;
+			}
+			.vertical_menu li {
+				list-style: none;
+				margin: 5px;
+			}
+			.vertical_menu li a {
+				text-decoration: none;
+			}
+			.vertical_menu li a:hover {
+				text-decoration: underline;
+			}
+
+			#main_content {
+				margin-left: 170px;
+			}
+		</style>
+		<style>
+			.css-carousel {
+				width: 100%;
+				height: 432px; /* Height of images */
+				position: relative;
+				overflow: hidden;
+			}
+			.css-carousel .css-img {
+				max-width: 100%;
+				position: absolute;
+				left: 0;
+				right: 0;
+				opacity: 0;
+				-webkit-animation: css-carousel-fade 30s linear infinite;
+				-moz-animation: css-carousel-fade 30s linear infinite;
+				-ms-animation: css-carousel-fade 30s linear infinite;
+				animation: css-carousel-fade 30s linear infinite;
+			}
+			.css-carousel .css-img:nth-child(2) {
+				-webkit-animation-delay: 5s;
+				-moz-animation-delay: 5s;
+				-ms-animation-delay: 5s;
+				animation-delay: 5s;
+			}
+			.css-carousel .css-img:nth-child(3) {
+				-webkit-animation-delay: 10s;
+				-moz-animation-delay: 10s;
+				-ms-animation-delay: 10s;
+				animation-delay: 10s;
+			}
+			.css-carousel .css-img:nth-child(4) {
+				-webkit-animation-delay: 15s;
+				-moz-animation-delay: 15s;
+				-ms-animation-delay: 15s;
+				animation-delay: 15s;
+			}
+			.css-carousel .css-img:nth-child(5) {
+				-webkit-animation-delay: 20s;
+				-moz-animation-delay: 20s;
+				-ms-animation-delay: 20s;
+				animation-delay: 20s;
+			}
+			.css-carousel .css-img:nth-child(6) {
+				-webkit-animation-delay: 25s;
+				-moz-animation-delay: 25s;
+				-ms-animation-delay: 25s;
+				animation-delay: 25s;
+			}
+			@-webkit-keyframes css-carousel-fade {
+				0%, 20%, 100% { opacity: 0; }
+				5%, 15% { opacity: 1;}
+			}
+			@-moz-keyframes css-carousel-fade {
+				0%, 20%, 100% { opacity: 0; }
+				5%, 15% { opacity: 1;}
+			}
+			@-ms-keyframes css-carousel-fade {
+				0%, 20%, 100% { opacity: 0; }
+				5%, 15% { opacity: 1;}
+			}
+			@keyframes css-carousel-fade {
+				0%, 20%, 100% { opacity: 0; }
+				5%, 15% { opacity: 1;}
 			}
 		</style>
 	</head>
 	<body>
-		<h1 id="welcome">Sarah Learns Coding!</h1>
-		<a href="visuals.html">Visual References</a>
-		<a href="projects.html">Projects</a>
+		<h1 id="welcome">Sarah Claggett - Graphic Design 2</h1>
+		<ul class="vertical_menu">
+			<li><a href="project_1.html">project 1</a></li>
+			<li><a href="project_2.html">project 2</a></li>
+			<li><a href="visuals.html">blog</a></li>
+			<li><a href="mailto:sclaggett@mica.edu">contact</a></li>
+		</ul>
+		<div id="main_content">
+			<div class="css-carousel">
+				<img class="css-img" src="images/nailpolish-046.jpg" />
+				<img class="css-img" src="images/nailpolish-069.jpg" />
+				<img class="css-img" src="images/nailpolish-117.jpg" />
+				<img class="css-img" src="images/nailpolish-118.jpg" />
+				<img class="css-img" src="images/nailpolish-119.jpg" />
+				<img class="css-img" src="images/nailpolish-121.jpg" />
+			</div>
+		</div>
+	</body>
 	</body>
 </html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<!-- Debug *{border: 1px solid red ;} -->
+
+<html>
+	<head>
+		<title>Sarah Claggett</title>
+		<body bgcolor="white">
+		<link href='http://fonts.googleapis.com/css?family=Lekton' rel='stylesheet' type='text/css'>
+		<style type="text/css">
+		*{font-family: Lekton, sans-serif;}
+		.welcome {color:aqua}
+					h1 {background-color:white }
+			
+			a {background-color: #ffffff; text-decoration: none;}
+			a:hover{color: red; text-decoration: none;}
+
+			
+			#welcome {
+			font-family: Lekton, sans-serif;
+				color: black;
+				font-size: 69px;
+			}
+		</style>
+		<style type="text/css">
+			body {
+				font-family: Lekton, sans-serif;
+				font-size: 14px;
+			}
+						
+			.vertical_menu {
+				float: left;
+				width: 125px;
+				padding: 5px;
+				margin: 5px;
+			}
+			.vertical_menu li {
+				list-style: none;
+				margin: 5px;
+			}
+			.vertical_menu li a {
+				text-decoration: none;
+			}
+			.vertical_menu li a:hover {
+				text-decoration: underline;
+			}
+
+			#main_content {
+				margin-left: 170px;
+			}
+		</style>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<!-- Add jQuery library -->
+	<script type="text/javascript" src="lib/jquery-1.10.1.min.js"></script>
+
+	<!-- Add mousewheel plugin (this is optional) -->
+	<script type="text/javascript" src="lib/jquery.mousewheel-3.0.6.pack.js"></script>
+
+	<!-- Add fancyBox main JS and CSS files -->
+	<script type="text/javascript" src="source/jquery.fancybox.js?v=2.1.5"></script>
+	<link rel="stylesheet" type="text/css" href="source/jquery.fancybox.css?v=2.1.5" media="screen" />
+
+	<!-- Add Button helper (this is optional) -->
+	<link rel="stylesheet" type="text/css" href="source/helpers/jquery.fancybox-buttons.css?v=1.0.5" />
+	<script type="text/javascript" src="source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+
+	<!-- Add Thumbnail helper (this is optional) -->
+	<link rel="stylesheet" type="text/css" href="source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
+	<script type="text/javascript" src="source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+	<!-- Add Media helper (this is optional) -->
+	<script type="text/javascript" src="source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			 *  Simple image gallery. Uses default settings
+			 */
+
+			$('.fancybox').fancybox();
+
+			/*
+			 *  Different effects
+			 */
+
+			// Change title type, overlay closing speed
+			$(".fancybox-effects-a").fancybox({
+				helpers: {
+					title : {
+						type : 'outside'
+					},
+					overlay : {
+						speedOut : 0
+					}
+				}
+			});
+
+			// Disable opening and closing animations, change title type
+			$(".fancybox-effects-b").fancybox({
+				openEffect  : 'none',
+				closeEffect	: 'none',
+
+				helpers : {
+					title : {
+						type : 'over'
+					}
+				}
+			});
+
+			// Set custom style, close if clicked, change title type and overlay color
+			$(".fancybox-effects-c").fancybox({
+				wrapCSS    : 'fancybox-custom',
+				closeClick : true,
+
+				openEffect : 'none',
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					overlay : {
+						css : {
+							'background' : 'rgba(238,238,238,0.85)'
+						}
+					}
+				}
+			});
+
+			// Remove padding, set opening and closing animations, close if clicked and disable overlay
+			$(".fancybox-effects-d").fancybox({
+				padding: 0,
+
+				openEffect : 'elastic',
+				openSpeed  : 150,
+
+				closeEffect : 'elastic',
+				closeSpeed  : 150,
+
+				closeClick : true,
+
+				helpers : {
+					overlay : null
+				}
+			});
+
+			/*
+			 *  Button helper. Disable animations, hide close button, change title type and content
+			 */
+
+			$('.fancybox-buttons').fancybox({
+				openEffect  : 'none',
+				closeEffect : 'none',
+
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					buttons	: {}
+				},
+
+				afterLoad : function() {
+					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+			});
+
+
+			/*
+			 *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+			 */
+
+			$('.fancybox-thumbs').fancybox({
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+				arrows    : false,
+				nextClick : true,
+
+				helpers : {
+					thumbs : {
+						width  : 50,
+						height : 50
+					}
+				}
+			});
+
+			/*
+			 *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
+			*/
+			$('.fancybox-media')
+				.attr('rel', 'media-gallery')
+				.fancybox({
+					openEffect : 'none',
+					closeEffect : 'none',
+					prevEffect : 'none',
+					nextEffect : 'none',
+
+					arrows : false,
+					helpers : {
+						media : {},
+						buttons : {}
+					}
+				});
+
+			/*
+			 *  Open manually
+			 */
+
+			$("#fancybox-manual-a").click(function() {
+				$.fancybox.open('1_b.jpg');
+			});
+
+			$("#fancybox-manual-b").click(function() {
+				$.fancybox.open({
+					href : 'iframe.html',
+					type : 'iframe',
+					padding : 5
+				});
+			});
+
+			$("#fancybox-manual-c").click(function() {
+				$.fancybox.open([
+					{
+						href : '1_b.jpg',
+						title : 'My title'
+					}, {
+						href : '2_b.jpg',
+						title : '2nd title'
+					}, {
+						href : '3_b.jpg'
+					}
+				], {
+					helpers : {
+						thumbs : {
+							width: 75,
+							height: 50
+						}
+					}
+				});
+			});
+
+
+		});
+	</script>
+
+	</head>
+	<body>
+		<a href="index.html"><h1 id="welcome">Sarah Claggett - Graphic Design 2</h1></a>
+		<ul class="vertical_menu">
+			<li><a href="project_1.html">project 1</a></li>
+			<li><a href="project_2.html">project 2</a></li>
+			<li><a href="visuals.html">blog</a></li>
+			<li><a href="mailto:sclaggett@mica.edu">contact</a></li>
+		</ul>
+		<div id="main_content">
+			<div>
+				<h2 style="margin-left: 350px;">Final</h2>
+				<a href="http://stclaggett.github.io/gd2-brewers-art/"><img class="css-img" style="width: 570px; height: 400px; margin-left: 100px;" src="images/brewers1.jpg" /></a>
+			</div>
+			<div style="width: 1020px; font-family">
+				<h2 style="margin-left: 290px;">Project Description</h2>
+				<p>Project 2: The restaurant website redesign. Redesign the website of a well-known, well-liked Baltimore restaurant with a website leaving a bit to be desired. Keep in mind layout, anticipate the objectives of those visiting the site, and strive for a feel that captures the character of the dining establishment.	</p>	
+				<p>	Please click the final image to visit the redesigned Brewer's Art website. 	</p>
+			</div>			
+			<div>
+				<h2 style="margin-left: 350px;">Process</h2>
+				<p>
+					<a class="fancybox-effects-c" style="margin-left: 120px;" href="images/brewers-process-2.jpg" data-fancybox-group="gallery" title="Initial wire-frame sketch for the website's layout"><img style="width: 150px; height: 200px;" src="images/brewers-process-thumb-2.jpg" alt="" /></a>
+					<a class="fancybox-effects-c" style="margin-left: 40px;" href="images/brewers-process-1.jpg" data-fancybox-group="gallery" title="Initial color scheme font choice"><img style="width: 150px; height: 200px;" src="images/brewers-process-1.jpg" alt="" /></a>
+					<a class="fancybox-effects-c" style="margin-left: 40px;" href="images/brewers-process-3.jpg" data-fancybox-group="gallery" title="Second design color scheme- addition of tecture to the background"><img style="width: 150px; height: 200px;" src="images/brewers-process-thumb-3.jpg" alt="" /></a>
+				</p>
+			</div>
+		</div>
+	</body>
+	</body>
+</html>
