@@ -67,7 +67,7 @@ a:visted{color: black;}
   margin: 1px;
   text-indent: -999px;
   cursor: pointer;
-  background-color: #000 \9;
+  background-color: #000 .9;
   background-color: rgba(0, 0, 0, 0);
   border: 1px solid #ff634f;
   border-radius: 10px;
@@ -102,18 +102,16 @@ a:visted{color: black;}
   background-image: none;
   background-image: none;
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=0);
 }
 
 
 
 .carousel-control.left {
-  left: 0 
-    left: auto;
+  left: 0;
+  right: auto;
   background-image: none;
   background-image: none;
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=0);
 }
 
 
